@@ -23,7 +23,7 @@ app.use(cookieParser());
 
 // CORS
 const corsOptions = {
-  origin: "*",
+  origin: "https://koton-blond.vercel.app",
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
   allowedHeaders: ['Content-Type', 'Authorization'],
   exposedHeaders: ['Authorization'],
