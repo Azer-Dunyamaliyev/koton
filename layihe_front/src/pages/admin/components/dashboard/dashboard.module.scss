@@ -1,0 +1,133 @@
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: calc(100vh - 40px);
+  background: #212631;
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: #fff;
+
+    .texts {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      h1 {
+        font-size: 35px;
+        font-weight: 400;
+        font-family: "Inria Sans", serif;
+        line-height: 1.5;
+      }
+
+      p {
+        color: #e4e4e4;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5;
+      }
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+
+      .card {
+        width: 300px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 20px;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        color: #131313;
+
+        h2 {
+            display: flex;
+            flex-direction: row-reverse;
+            gap: 10px;
+
+            span {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        p {
+          color: #131313;
+          font-size: 40px;
+        }
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width:860px) {
+    .dashboard {
+        .content {
+          .texts {
+            h1 {
+              font-size: 30px;
+            }
+      
+            p {
+              font-size: 14px;
+            }
+          }
+      
+          .stats {
+            .card {
+              width: 250px;
+              height: 150px;
+              h2 {
+                  font-size: 20px;
+              }
+              p {
+                font-size: 30px;
+              }
+            }
+          }
+        }
+      }
+}
+
+@media screen and (max-width:560px) {
+    .dashboard {
+        .content {
+          .texts {
+            padding: 0 20px;
+            h1 {
+              font-size: 22px;
+            }
+      
+            p {
+              font-size: 12px;
+            }
+          }
+      
+          .stats {
+            padding: 0 20px;
+            .card {
+              width: 100%;
+              height: 130px;
+              h2 {
+                  font-size: 18px;
+              }
+              p {
+                font-size: 28px;
+              }
+            }
+          }
+        }
+      }
+}

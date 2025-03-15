@@ -1,0 +1,15 @@
+.collection {
+    h3 {
+        font-size: 22px;
+        color: #000;
+        font-weight: 500;
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .collection {
+        h3 {
+            font-size: 20px;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+.detail {
+    padding: 40px 0;
+  .content {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+  }
+}
+
+@media screen and (max-width:860px) {
+  .detail {
+    .content {
+      flex-direction: column;
+    }
+  }
+}

@@ -1,0 +1,71 @@
+.account {
+  padding: 40px 0;
+  .content {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .texts {
+        width: 350px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        gap: 20px;
+
+        h3 {
+            font-size: 42px;
+            color: #131313;
+            font-family: "Kameron", serif;
+            font-weight: 300;
+        }
+
+        ul {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            li {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
+                .title {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    span {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+
+                    a {
+                        font-size: 14px;
+                        color: #131313;
+                    }
+                }
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+
+        button {
+            font-size: 14px;
+            color: #131313;
+            background: none;
+            padding: 3px 0;
+            outline: none;
+            cursor: pointer;
+            letter-spacing: 1px;
+            border: none;
+            border-bottom: 1px solid #131313;
+        }
+    }
+  }
+}
