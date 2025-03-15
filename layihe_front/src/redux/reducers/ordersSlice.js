@@ -12,7 +12,7 @@ export const successOrderThunk = createAsyncThunk(
       }
 
       const response = await axios.post(
-        "http://localhost:5500/success/orders/",
+        "https://koton.onrender.com/success/orders/",
         {
           order: orderData,
         },
@@ -41,7 +41,7 @@ export const getAllSuccessOrdersThunk = createAsyncThunk(
         return rejectWithValue("Token bulunamadı.");
       }
 
-      const response = await axios.get("http://localhost:5500/success/orders", {
+      const response = await axios.get("https://koton.onrender.com/success/orders", {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -66,7 +66,7 @@ export const getUserSuccessOrdersThunk = createAsyncThunk(
       }
 
       const response = await axios.get(
-        `http://localhost:5500/success/${userId}`,
+        `https://koton.onrender.com/success/${userId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -90,7 +90,7 @@ export const createOrderThunk = createAsyncThunk(
   "order/createOrder",
   async ({ orderData, userId }, { rejectWithValue }) => {
     try {
-      const response = await axios.post("http://localhost:5500/orders", {
+      const response = await axios.post("https://koton.onrender.com/orders", {
         order: orderData,
         userId: userId,
       });
@@ -114,7 +114,7 @@ export const getUserOrdersThunk = createAsyncThunk(
 
     try {
       const response = await axios.get(
-        `http://localhost:5500/orders/${userId}`,
+        `https://koton.onrender.com/orders/${userId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -136,7 +136,7 @@ export const getOrderByIdThunk = createAsyncThunk(
   async (orderId, { rejectWithValue }) => {
     try {
       const response = await axios.get(
-        `http://localhost:5500/orders/order/${orderId}`
+        `https://koton.onrender.com/orders/order/${orderId}`
       );
       return response.data;
     } catch (error) {
@@ -157,7 +157,7 @@ export const postPaymentThunk = createAsyncThunk(
       if (!token) throw new Error("No token found!");
 
       const response = await axios.post(
-        "http://localhost:5500/orders/payment",
+        "https://koton.onrender.com/orders/payment",
         { paymentMethodId, orderId },
         {
           headers: {
@@ -167,7 +167,7 @@ export const postPaymentThunk = createAsyncThunk(
       );
 
       if (response.data.success) {
-        window.location.href = "http://localhost:3000/success"; 
+        window.location.href = "https://koton-on6ju37kj-azers-projects-93e65f7e.vercel.app//success"; 
       }
 
       return response.data;
@@ -188,7 +188,7 @@ export const updateOrderStatusThunk = createAsyncThunk(
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        `http://localhost:5500/success/order/${orderId}`,
+        `https://koton.onrender.com/success/order/${orderId}`,
         { status },
         {
           headers: {
@@ -214,7 +214,7 @@ export const deleteSuccesOrderThunk = createAsyncThunk(
       const token = localStorage.getItem("token");
 
       const response = await axios.delete(
-        `http://localhost:5500/success/orders/order/${itemId}`,
+        `https://koton.onrender.com/success/orders/order/${itemId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -239,7 +239,7 @@ export const deleteOrderThunk = createAsyncThunk(
       const token = localStorage.getItem("token");
 
       const response = await axios.delete(
-        `http://localhost:5500/orders/order/${itemId}`,
+        `https://koton.onrender.com/orders/order/${itemId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -266,7 +266,7 @@ export const deleteAllOrdersThunk = createAsyncThunk(
       }
 
       const response = await axios.delete(
-        "http://localhost:5500/orders/delete",
+        "https://koton.onrender.com/orders/delete",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -286,7 +286,7 @@ export const updateSuccesOrdersThunk = createAsyncThunk(
   "orders/updateSuccesOrders",
   async (updatedOrderData, { rejectWithValue }) => {
     try {
-      const response = await axios.put("http://localhost:5500/success/update", updatedOrderData);
+      const response = await axios.put("https://koton.onrender.com/success/update", updatedOrderData);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -298,7 +298,7 @@ export const deleteSuccesOrderAdminThunk = createAsyncThunk(
   "orders/deleteSuccesOrder",
   async (orderId, { rejectWithValue }) => {
     try {
-      await axios.delete(`/api/orders/${orderId}`);
+      await axios.delete(`https://koton.onrender.com/orders/${orderId}`);
       return orderId;
     } catch (error) {
       return rejectWithValue(error.response.data);
