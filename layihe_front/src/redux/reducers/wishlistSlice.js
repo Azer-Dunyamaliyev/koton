@@ -8,7 +8,7 @@ export const getWishList = createAsyncThunk("wishlist/get", async () => {
       throw new Error("Token bulunamadı!");
     }
 
-    const response = await axios.get("http://localhost:5500/favorites", {
+    const response = await axios.get("https://koton.onrender.com/favorites", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -24,7 +24,7 @@ export const getWishList = createAsyncThunk("wishlist/get", async () => {
 
 
 
-// Favori ürün durumunu almak için
+
 export const wishlistStatus = createAsyncThunk(
   "wishlist/status",
   async ({ productId, selectedColor }, { rejectWithValue }) => {
@@ -35,15 +35,15 @@ export const wishlistStatus = createAsyncThunk(
         (fav) =>
           fav.productId === productId && fav.selectedColor === selectedColor
       );
-      return isFavorite; // Token yoksa localStorage'dan kontrol et
+      return isFavorite; 
     }
 
     try {
       const response = await axios.get(
-        `http://localhost:5500/favorites/${productId}`,
+        `https://koton.onrender.com/favorites/${productId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
-          params: { selectedColor }, // selectedColor ile birlikte gönder
+          params: { selectedColor }, 
         }
       );
       return response.data.isFavorite;
@@ -53,7 +53,7 @@ export const wishlistStatus = createAsyncThunk(
   }
 );
 
-// Favori eklemek için
+
 export const addFavoriteThunk = createAsyncThunk(
   "favorites/addFavorite",
   async ({ productId, selectedColor }, { rejectWithValue }) => {
@@ -61,7 +61,7 @@ export const addFavoriteThunk = createAsyncThunk(
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        "http://localhost:5500/favorites",
+        "https://koton.onrender.com/favorites",
         { productId, selectedColor },
         {
           headers: {
@@ -79,8 +79,7 @@ export const addFavoriteThunk = createAsyncThunk(
   }
 );
 
-// Favori silmek için
-// Favori silme işlemi sonrasında favori listesini yeniden al
+
 export const deleteFavoriteThunk = createAsyncThunk(
   "favorites/deleteFavorite",
   async ({ productId, selectedColor }, { dispatch, rejectWithValue }) => {
@@ -88,7 +87,7 @@ export const deleteFavoriteThunk = createAsyncThunk(
       const token = localStorage.getItem("token");
 
       const response = await axios.delete(
-        `http://localhost:5500/favorites/delete/${productId}`,
+        `https://koton.onrender.com/favorites/delete/${productId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -97,7 +96,7 @@ export const deleteFavoriteThunk = createAsyncThunk(
         }
       );
 
-      // Favori silindikten sonra favori listesini yeniden al
+      
       dispatch(getWishList());
 
       return response.data;
@@ -113,7 +112,7 @@ export const wishListSlice = createSlice({
   name: "favorites",
   initialState: {
     favorites: [],
-    status: {}, // favori durumları (productId, selectedColor)
+    status: {}, 
     loading: false,
     error: null,
   },
@@ -138,13 +137,13 @@ export const wishListSlice = createSlice({
       .addCase(wishlistStatus.fulfilled, (state, action) => {
         state.loading = false;
         const { productId, selectedColor } = action.meta.arg;
-        state.status[`${productId}-${selectedColor}`] = action.payload; // favori durumu key olarak productId ve selectedColor
+        state.status[`${productId}-${selectedColor}`] = action.payload; 
       })
       .addCase(wishlistStatus.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       })
-      // { POST } - favori ekleme
+      // { POST } 
       .addCase(addFavoriteThunk.fulfilled, (state, action) => {
         state.loading = false;
         state.favorites.push(action.payload);
@@ -157,19 +156,19 @@ export const wishListSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
-      // { DELETE } - favori silme
+      // { DELETE } 
       .addCase(deleteFavoriteThunk.fulfilled, (state, action) => {
-        console.log("Delete payload:", action.payload); // Payload'ı kontrol et
+        console.log("Delete payload:", action.payload); 
         const { productId, selectedColor } = action.payload;
         console.log(action.payload);
-        // Favori silme işlemi
+        
         state.favorites = state.favorites.filter(
           (favorite) =>
             favorite.productId !== productId || 
             favorite.selectedColor !== selectedColor
         );
       
-        // Silinen favori durumu
+        
         state.status[`${productId}-${selectedColor}`] = false;
       })
       
