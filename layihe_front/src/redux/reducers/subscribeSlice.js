@@ -5,7 +5,7 @@ export const addSubscriber = createAsyncThunk(
   "subscribe/addSubscriber",
   async (email, { rejectWithValue }) => {
     try {
-      const response = await axios.post("http://localhost:5500/subscribe", { email });
+      const response = await axios.post("https://koton.onrender.com/subscribe", { email });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
