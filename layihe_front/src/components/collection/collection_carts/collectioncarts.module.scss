@@ -1,0 +1,32 @@
+.fashion {
+  padding: 40px 0;
+  .content {
+    padding: 0 0 40px;
+    .carts {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 30px;
+    }
+  }
+}
+
+@media screen and (max-width:1200px) {
+  .fashion {
+    .content {
+      .carts {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+}
+
+@media screen and (max-width:750px) {
+  .fashion {
+    .content {
+      .carts {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+}
+

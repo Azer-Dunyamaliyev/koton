@@ -1,0 +1,48 @@
+.footer {
+    padding: 40px 0;
+    border-bottom: 1px solid #bebebe;
+    border-top: 1px solid #bebebe;
+    .content {
+      padding: 40px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      ul {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 10px;
+  
+          li {
+              display: flex;
+              gap: 10px;
+  
+              a,span,p {
+                  font-size: 22px;
+                  color: #131313;
+                  font-weight: 500;
+              }
+  
+              p {
+                  opacity: .6;
+              }
+          }
+      }
+    }
+  }
+  
+
+  @media screen and (max-width: 550px) {
+    .footer {
+        .content {
+          ul {
+              li {
+                  a,span,p {
+                      font-size: 18px;
+                  }
+              }
+          }
+        }
+      }
+  }

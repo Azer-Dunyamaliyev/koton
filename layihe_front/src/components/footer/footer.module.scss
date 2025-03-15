@@ -1,0 +1,109 @@
+.footer {
+  background-color: #fff;
+  padding: 40px 0;
+  .content {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 150px;
+    .texts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 50px;
+      .text {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        h3 {
+          font-size: 20px;
+          color: #131313;
+          font-weight: 500;
+          font-family: "Inria Sans", serif;
+        }
+        ul {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+
+          li {
+            a {
+              font-size: 14px;
+              color: #131313;
+              font-weight: 400;
+              opacity: .6;
+            }
+          }
+        }
+      }
+    }
+
+    .social {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 25px;
+
+      .app {
+        h3 {
+          font-size: 20px;
+          color: #131313;
+          font-weight: 500;
+          font-family: "Inria Sans", serif;
+        }
+
+        .images {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 20px;
+            margin: 20px 0 0;
+            img {
+              width: 140px;
+              height: auto;
+            }
+        }
+      }
+
+      .platform {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        h3 {
+          font-size: 20px;
+          color: #131313;
+          font-weight: 500;
+          font-family: "Inria Sans", serif;
+        }
+
+        .icons {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 25px;
+
+            a {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+
+              img {
+                width: 40px;
+                height: 40px;
+              }
+            }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:860px) {
+  .footer {
+    .content {
+      justify-content: space-between;
+      gap: 50px;
+    }
+  }
+}

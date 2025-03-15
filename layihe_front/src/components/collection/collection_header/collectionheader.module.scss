@@ -1,0 +1,46 @@
+.header {
+  padding: 40px 0;
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0 0;
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+
+      li {
+        a {
+          padding: 10px 15px;
+          background-color: #f6f6f6;
+          border-radius: 5px;
+          transition: background 0.3s;
+          font-size: 14px;
+          font-weight: 400;
+          color: #131313;
+          text-decoration: none;
+          text-transform: capitalize;
+        }
+
+        li:first-child {
+          a {
+            background-color: #131313;
+            color: #fff;
+          }
+        }
+
+        &:hover {
+          background-color: #ddd;
+        }
+
+        &.active {
+          a {
+            background-color: #131313;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}

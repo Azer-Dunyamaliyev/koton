@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", serif;
+  font-weight: 500;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bebebe;
+  height: 300px;
+  border-radius: 20px;
+}
+
+
+img {
+  width: 100%;
+  height: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  font-size: 14px;
+  color: #777;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width:1400px) {
+  .container {
+    padding: 0 30px;
+  }
+}
