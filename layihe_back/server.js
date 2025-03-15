@@ -23,7 +23,7 @@ app.use(cookieParser());
 
 // CORS
 const corsOptions = {
-  origin: 'http://localhost:3000', 
+  origin: ['http://localhost:3000','https://koton-on6ju37kj-azers-projects-93e65f7e.vercel.app/'], 
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
   allowedHeaders: ['Content-Type', 'Authorization'],
   exposedHeaders: ['Authorization'],
