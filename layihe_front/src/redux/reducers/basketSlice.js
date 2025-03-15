@@ -11,7 +11,7 @@ export const getUserOrders = createAsyncThunk(
       }
 
       const response = await axios.get(
-        `http://localhost:5500/orders/${userId}`,
+        `https://koton.onrender.com/orders/${userId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -41,7 +41,7 @@ export const addToBasketThunk = createAsyncThunk(
         userId,
       };
       const response = await axios.post(
-        "http://localhost:5500/orders",
+        "https://koton.onrender.com/orders",
         orderData,
         {
           headers: { Authorization: `Bearer ${token}` },
