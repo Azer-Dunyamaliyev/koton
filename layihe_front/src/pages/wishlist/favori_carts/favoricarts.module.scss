@@ -1,0 +1,55 @@
+.favori {
+    padding: 40px 0;
+    .content {
+        padding: 40px 0;
+        .texts {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          text-align: center;
+
+          h2 {
+            font-size: 14px;
+            color: #131313;
+            font-weight: 500;
+            text-transform: uppercase;
+          }
+
+          p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 13px;
+            color: #131313;
+            opacity: .8;
+            font-weight: 400;
+          }
+        }
+        .carts {
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            gap: 25px;
+        }
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .favori {
+      .content {
+        .carts {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width:750px) {
+    .favori {
+      .content {
+        .carts {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    }
+  }
