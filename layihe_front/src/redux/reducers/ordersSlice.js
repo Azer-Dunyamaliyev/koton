@@ -167,7 +167,7 @@ export const postPaymentThunk = createAsyncThunk(
       );
 
       if (response.data.success) {
-        window.location.href = "https://koton-on6ju37kj-azers-projects-93e65f7e.vercel.app//success"; 
+        window.location.href = "koton-blond.vercel.app/success"; 
       }
 
       return response.data;
