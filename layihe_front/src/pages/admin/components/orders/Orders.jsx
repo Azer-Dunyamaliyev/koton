@@ -121,7 +121,7 @@ const Orders = () => {
                     >
                       <td>{order._id}</td>
                       <td>{new Date(order.createdAt).toLocaleDateString()}</td>
-                      <td style={{textTransform: "lowercase"}}>{order.userId.email}</td>
+                      <td style={{textTransform: "lowercase"}}>{order.userId?.email || "Unknown"}</td>
                       <td>
                         {editMode === order._id ? (
                           <select value={editedOrder.status} onChange={handleChange}>
