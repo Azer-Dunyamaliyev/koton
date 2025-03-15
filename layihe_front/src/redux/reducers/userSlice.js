@@ -7,7 +7,7 @@ import { clearOrders } from "./basketSlice";
 //{ USER }
 export const getUserThunk = createAsyncThunk("users/fetchUsers", async (_, { getState }) => {
   const token = localStorage.getItem("token"); 
-  const response = await axios.get("http://localhost:5500/users", {
+  const response = await axios.get("https://koton.onrender.com/users", {
     headers: {
       Authorization: `Bearer ${token}`
     }
@@ -19,7 +19,7 @@ export const getUserThunk = createAsyncThunk("users/fetchUsers", async (_, { get
 //{ ME }
 export const getMeThunk = createAsyncThunk("api/users/me", async (_) => {
   const token = localStorage.getItem("token");
-  const response = await axios.get("http://localhost:5500/users/me", {
+  const response = await axios.get("https://koton.onrender.com/users/me", {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -34,7 +34,7 @@ export const postRegisterThunk = createAsyncThunk(
   async (userData, thunkAPI) => {
     try {
       const response = await axios.post(
-        "http://localhost:5500/users/register",
+        "https://koton.onrender.com/users/register",
         userData
       );
       return response.data;
@@ -52,7 +52,7 @@ export const postLoginThunk = createAsyncThunk(
   async (data, thunkAPI) => {
     try {
       const response = await axios.post(
-        "http://localhost:5500/users/login",
+        "https://koton.onrender.com/users/login",
         data
       );
       const { token, username } = response.data;
@@ -84,18 +84,18 @@ export const updateUsernameThunk = createAsyncThunk(
     const token = localStorage.getItem("token");
     try {
       const response = await axios.put(
-        "http://localhost:5500/users/update/username",
+        "https://koton.onrender.com/users/update/username",
         { username },
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Token gönderme
+            Authorization: `Bearer ${token}`, 
           },
           withCredentials: true,
         }
       );
-      return response.data; // Yeni kullanıcı verisi
+      return response.data; 
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data); // Hata durumunda
+      return thunkAPI.rejectWithValue(error.response.data); 
     }
   }
 );
@@ -107,18 +107,18 @@ export const updateNameThunk = createAsyncThunk(
     const token = localStorage.getItem("token");
     try {
       const response = await axios.put(
-        "http://localhost:5500/users/update/name",
+        "https://koton.onrender.com/users/update/name",
         { name },
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Token gönderme
+            Authorization: `Bearer ${token}`, 
           },
           withCredentials: true,
         }
       );
-      return response.data; // Yeni kullanıcı verisi
+      return response.data; 
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data); // Hata durumunda
+      return thunkAPI.rejectWithValue(error.response.data); 
     }
   }
 );
@@ -130,18 +130,18 @@ export const updateSurNameThunk = createAsyncThunk(
     const token = localStorage.getItem("token");
     try {
       const response = await axios.put(
-        "http://localhost:5500/users/update/surname",
+        "https://koton.onrender.com/users/update/surname",
         { surname },
         {
           headers: {
-            Authorization: `Bearer ${token}`, // Token gönderme
+            Authorization: `Bearer ${token}`, 
           },
           withCredentials: true,
         }
       );
-      return response.data; // Yeni kullanıcı verisi
+      return response.data; 
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data); // Hata durumunda
+      return thunkAPI.rejectWithValue(error.response.data); 
     }
   }
 );
@@ -154,16 +154,16 @@ export const updateUserInfoThunk = createAsyncThunk(
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        "http://localhost:5500/users/update",  // Endpoint
-        userData,  // Yeni kullanıcı bilgileri
+        "https://koton.onrender.com/users/update",  
+        userData,  
         {
           headers: {
-            Authorization: `Bearer ${token}`,  // Token ekleme
+            Authorization: `Bearer ${token}`, 
           },
         }
       );
 
-      return response.data;  // Backend'den dönen yeni kullanıcı verisi
+      return response.data;  
     } catch (error) {
       return thunkAPI.rejectWithValue(
         error.response ? error.response.data : "An error occurred"
@@ -182,7 +182,7 @@ export const updateEmailThunk = createAsyncThunk(
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        "http://localhost:5500/users/update/email",
+        "https://koton.onrender.com/users/update/email",
         { email, password },
         {
           headers: {
@@ -209,7 +209,7 @@ export const updatePasswordThunk = createAsyncThunk(
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        "http://localhost:5500/users/update/password",
+        "https://koton.onrender.com/users/update/password",
         { oldPassword, newPassword },
         {
           headers: {
@@ -220,7 +220,7 @@ export const updatePasswordThunk = createAsyncThunk(
 
       return response.data;
     } catch (error) {
-      // Hata mesajını döndürmek
+      
       return thunkAPI.rejectWithValue(
         error.response ? error.response.data.message : "An error occurred"
       );
@@ -235,7 +235,7 @@ export const updatePhoneThunk = createAsyncThunk(
   async (userData, { dispatch, getState, rejectWithValue }) => {
     try {
       const response = await axios.put(
-        "http://localhost:5500/users/update/phone",
+        "https://koton.onrender.com/users/update/phone",
         {
           phone: userData.phone,
           countryCode: userData.countryCode,
@@ -265,7 +265,7 @@ export const updateAddressThunk = createAsyncThunk(
     const token = localStorage.getItem("token");
     try {
       const response = await axios.put(
-        "http://localhost:5500/users/update/address",
+        "https://koton.onrender.com/users/update/address",
         { address },
         {
           headers: {
@@ -289,7 +289,7 @@ export const updateTownThunk = createAsyncThunk(
     const token = localStorage.getItem("token");
     try {
       const response = await axios.put(
-        "http://localhost:5500/users/update/town",
+        "https://koton.onrender.com/users/update/town",
         { town },
         {
           headers: {
@@ -310,7 +310,7 @@ export const updateUserAdminThunk = createAsyncThunk(
   async ({ userId, updateData }, { rejectWithValue }) => {
     try {
       const response = await axios.put(
-        `http://localhost:5500/users/update-user/${userId}`,
+        `https://koton.onrender.com/users/update-user/${userId}`,
         updateData
       );
       return response.data;
@@ -327,7 +327,7 @@ export const deleteUserThunk = createAsyncThunk(
   'user/delete', 
   async (_, { rejectWithValue }) => {
     try {
-      const response = await axios.delete("http://localhost:5500/users/delete", {
+      const response = await axios.delete("https://koton.onrender.com/users/delete", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
@@ -344,7 +344,7 @@ export const deleteUserAdminThunk = createAsyncThunk(
   "adminUser/delete",
   async (userId, { rejectWithValue }) => {
     try {
-      const response = await axios.delete(`http://localhost:5500/users/delete-user/${userId}`);
+      const response = await axios.delete(`https://koton.onrender.com/users/delete-user/${userId}`);
       return userId; 
     } catch (error) {
       return rejectWithValue(error.response ? error.response.data : "An error occurred");
