@@ -1058,7 +1058,7 @@ const uploadImage = (req, res) => {
     return res.status(400).json({ error: "Dosya yüklenemedi" });
   }
 
-  res.json({ fileUrl: `http://localhost:5500/uploads/${req.file.filename}` });
+  res.json({ fileUrl: `https://koton.onrender.com/uploads/${req.file.filename}` });
 };
 
 const deleteSuccesOrder = async (req, res) => {
