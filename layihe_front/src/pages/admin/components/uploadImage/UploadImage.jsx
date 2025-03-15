@@ -17,7 +17,7 @@ const UploadImage = ({ setImageUrls }) => {
       formData.append("image", file);
 
       try {
-        const { data } = await axios.post("http://localhost:5500/upload", formData, {
+        const { data } = await axios.post("https://koton.onrender.com/upload", formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
 
