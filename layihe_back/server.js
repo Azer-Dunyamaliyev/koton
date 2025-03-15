@@ -23,7 +23,7 @@ app.use(cookieParser());
 
 // CORS
 const corsOptions = {
-  origin: ["https://koton-b2opw0lup-azers-projects-93e65f7e.vercel.app"],
+  origin: "*",
   methods: ['GET', 'POST', 'PUT', 'DELETE'], 
   allowedHeaders: ['Content-Type', 'Authorization'],
   exposedHeaders: ['Authorization'],
