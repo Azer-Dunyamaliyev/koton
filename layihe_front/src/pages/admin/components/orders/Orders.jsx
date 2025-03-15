@@ -87,7 +87,7 @@ const Orders = () => {
               </span>
               <input
                 type="text"
-                placeholder="Search by email"
+                placeholder="Search"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
               />
