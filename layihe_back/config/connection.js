@@ -37,3 +37,7 @@ export default connectDB
 // STRIPE_SECRET_KEY = sk_test_51QtvfzRR8oYWn0OLvYuNFyP24BC3Tr9ogcdLQTAIAyZuZZEIaSMGdDtfcGqKrQEySZNeJnsFpaRyS33XxKANv3DB00wfpZo5mF
 // SUCCESS_URL=http://localhost:3000/success
 // CANCEL_URL=http://localhost:3000/cancel
+
+// FRONT
+// REACT_APP_API_URL = "http://localhost:5500"
+// REACT_APP_API_URL= "https://koton.onrender.com"
