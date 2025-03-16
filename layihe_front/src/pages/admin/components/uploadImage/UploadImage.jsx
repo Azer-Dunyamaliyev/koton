@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./uploadimage.module.scss";
-import axios from "axios";
+import axios from '../../../../utils/axiosInstance'
+
 
 const UploadImage = ({ setImageUrls }) => {
   const [images, setImages] = useState([]);
@@ -17,7 +18,7 @@ const UploadImage = ({ setImageUrls }) => {
       formData.append("image", file);
 
       try {
-        const { data } = await axios.post("https://koton.onrender.com/upload", formData, {
+        const { data } = await axios.post("/upload", formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
 

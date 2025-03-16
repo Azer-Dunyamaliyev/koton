@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios from '../../utils/axiosInstance'
+
 
 export const getWishList = createAsyncThunk("wishlist/get", async () => {
   try {
@@ -8,7 +9,7 @@ export const getWishList = createAsyncThunk("wishlist/get", async () => {
       throw new Error("Token bulunamadı!");
     }
 
-    const response = await axios.get("https://koton.onrender.com/favorites", {
+    const response = await axios.get("/favorites", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -40,7 +41,7 @@ export const wishlistStatus = createAsyncThunk(
 
     try {
       const response = await axios.get(
-        `https://koton.onrender.com/favorites/${productId}`,
+        `/favorites/${productId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
           params: { selectedColor }, 
@@ -61,7 +62,7 @@ export const addFavoriteThunk = createAsyncThunk(
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        "https://koton.onrender.com/favorites",
+        "/favorites",
         { productId, selectedColor },
         {
           headers: {
@@ -87,7 +88,7 @@ export const deleteFavoriteThunk = createAsyncThunk(
       const token = localStorage.getItem("token");
 
       const response = await axios.delete(
-        `https://koton.onrender.com/favorites/delete/${productId}`,
+        `/favorites/delete/${productId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

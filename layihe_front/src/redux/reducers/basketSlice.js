@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios from '../../utils/axiosInstance'
 
 export const getUserOrders = createAsyncThunk(
   "basket/getUserOrders",
@@ -11,7 +11,7 @@ export const getUserOrders = createAsyncThunk(
       }
 
       const response = await axios.get(
-        `https://koton.onrender.com/orders/${userId}`,
+        `/orders/${userId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -41,14 +41,14 @@ export const addToBasketThunk = createAsyncThunk(
         userId,
       };
       const response = await axios.post(
-        "https://koton.onrender.com/orders",
+        "/orders",
         orderData,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
 
-      return response.data; // Siparişi başarıyla gönderiyoruz
+      return response.data; 
     } catch (error) {
       return rejectWithValue(
         error.response ? error.response.data.message : error.message

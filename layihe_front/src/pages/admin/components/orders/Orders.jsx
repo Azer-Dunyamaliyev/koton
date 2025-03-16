@@ -8,8 +8,8 @@ import {
 import { FaEdit, FaTrash, FaCheck, FaSearch } from "react-icons/fa";
 import styles from "./orders.module.scss";
 import { CgFormatCenter } from "react-icons/cg";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, Link } from "react-router-dom";
+import { IoMdArrowBack } from "react-icons/io";
 const Orders = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -76,6 +76,7 @@ const Orders = () => {
         <p className={styles.error}>Error: {error}</p>
       ) : (
         <div className={styles.content}>
+          <Link className={styles.btn} to={'/admin'}><IoMdArrowBack /></Link>
           <form
             action=""
             onSubmit={(e) => e.preventDefault()}

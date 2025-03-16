@@ -8,6 +8,7 @@ import {
   updateOrderStatusThunk,
 } from "../../../../redux/reducers/ordersSlice";
 import { useNavigate } from "react-router-dom";
+import { clearOrders } from "../../../../redux/reducers/basketSlice";
 
 const Shopping = () => {
   const navigate = useNavigate();
@@ -50,7 +51,7 @@ const Shopping = () => {
       if (response.meta.requestStatus === "fulfilled") {
         const orderId = response.payload.order._id;
         navigate(`/checkout/${orderId}`);
-
+        dispatch(clearOrders());
         setTimeout(() => {
           dispatch(deleteSuccesOrderThunk({ orderId }));
         }, 3600000);

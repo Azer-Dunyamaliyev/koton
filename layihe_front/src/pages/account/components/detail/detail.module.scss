@@ -51,6 +51,8 @@
               }
 
               .sidebar {
+                width: 500px !important;
+                padding: 0 40px;
                 .menu {
                   width: 100%;
                   padding: 40px 0;
@@ -201,6 +203,69 @@
         padding: 3px 0;
         color: #131313;
         cursor: pointer;
+      }
+    }
+  }
+}
+
+@media screen and (max-width:860px) {
+  .detail {
+    .content {
+      .texts {
+        ul {
+          li {
+            .user_detail {
+  
+              .title {
+                .sidebar {
+                  width: 400px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:650px) {
+  .detail {
+    .content {
+      .texts {
+        ul {
+          li {
+            .user_detail {
+  
+              .title {
+                .sidebar {
+                  width: 300px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width:450px) {
+  .detail {
+    .content {
+      .texts {
+        ul {
+          li {
+            .user_detail {
+  
+              .title {
+                .sidebar {
+                  width: 100% !important;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

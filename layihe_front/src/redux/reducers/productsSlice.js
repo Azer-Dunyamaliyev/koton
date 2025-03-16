@@ -1,11 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios from '../../utils/axiosInstance'
+
 
 export const getAllProductsThunk = createAsyncThunk(
   "api/allproducts",
   async () => {
     try {
-      const response = await axios.get("https://koton.onrender.com/products");
+      const response = await axios.get("/products");
       return response.data;
     } catch (error) {
       console.error("Backend error:", error);
@@ -20,7 +21,7 @@ export const getCategoryThunk = createAsyncThunk(
   async ({ name }) => {
     try {
       const response = await axios.get(
-        `https://koton.onrender.com/products/${name}`
+        `/products/${name}`
       );
       return response.data;
     } catch (error) {
@@ -36,7 +37,7 @@ export const getNameCategoryThunk = createAsyncThunk(
   async ({ name, category }, thunkAPI) => {
     try {
       const response = await axios.get(
-        `https://koton.onrender.com/products/${name}/${category}`
+        `/products/${name}/${category}`
       );
 
       return response.data;
@@ -53,7 +54,7 @@ export const updateProductThunk = createAsyncThunk(
   async ({ productId, updatedData }) => {
     try {
       const response = await axios.put(
-        `https://koton.onrender.com/products/${productId}`,
+        `/products/${productId}`,
         updatedData
       );
       return response.data;
@@ -70,7 +71,7 @@ export const addProductThunk = createAsyncThunk(
   async (productData, { rejectWithValue }) => {
     try {
       const response = await axios.post(
-        "https://koton.onrender.com/products",
+        "/products",
         productData
       );
       return response.data;
@@ -85,7 +86,7 @@ export const deleteProductThunk = createAsyncThunk(
   "api/deleteproduct",
   async (productId, { rejectWithValue }) => {
     try {
-      const response = await axios.delete(`https://koton.onrender.com/products/${productId}`);
+      const response = await axios.delete(`/products/${productId}`);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response ? error.response.data : error.message);

@@ -253,7 +253,6 @@ const Detail = () => {
                         onClose={toggleUserRealNameDrawer}
                         direction="right"
                         className={styles.sidebar}
-                        style={{ width: "500px", padding: "0 40px" }}
                       >
                         <div className={styles.menu}>
                           <div className={styles.texts}>

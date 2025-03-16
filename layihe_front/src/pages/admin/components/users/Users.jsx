@@ -9,8 +9,8 @@ import {
 import { FaTrash, FaEdit, FaCheck, FaSearch } from "react-icons/fa";
 import { CgFormatCenter } from "react-icons/cg";
 import { IoAddOutline } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
-
+import { useNavigate, Link } from "react-router-dom";
+import { IoMdArrowBack } from "react-icons/io";
 const Users = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -102,6 +102,10 @@ const Users = () => {
   return (
     <div className={styles.users}>
       <div className={styles.content}>
+        <Link className={styles.btn} to={"/admin"}>
+          <IoMdArrowBack />
+        </Link>
+
         <form onSubmit={(e) => e.preventDefault()} className={styles.filtered}>
           <div className={styles.search}>
             <span>

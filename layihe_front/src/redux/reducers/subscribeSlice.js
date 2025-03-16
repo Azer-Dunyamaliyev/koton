@@ -1,11 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import axios from '../../utils/axiosInstance'
+
 
 export const addSubscriber = createAsyncThunk(
   "subscribe/addSubscriber",
   async (email, { rejectWithValue }) => {
     try {
-      const response = await axios.post("https://koton.onrender.com/subscribe", { email });
+      const response = await axios.post("/subscribe", { email });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);

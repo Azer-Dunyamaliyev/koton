@@ -8,6 +8,7 @@
   .content {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 20px;
     color: #fff;
 
@@ -66,6 +67,20 @@
           color: #131313;
           font-size: 40px;
         }
+      }
+    }
+
+    .btn {
+      width: fit-content;
+      padding: 20px 25px;
+      background-color: #fff;
+      border-radius: 5px;
+      color: #212631;
+      transition: background .2s ease, color .2s ease;
+
+      &:hover {
+        color: #fff;
+        background-color: #0f1217;
       }
     }
   }

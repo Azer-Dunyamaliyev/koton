@@ -9,7 +9,8 @@ import {
 import { FaEdit, FaTrash, FaCheck, FaTimes, FaSearch } from "react-icons/fa";
 import { CgFormatCenter } from "react-icons/cg";
 import { IoAddOutline } from "react-icons/io5";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
+import { IoMdArrowBack } from "react-icons/io";
 
 const AdminProducts = () => {
   const navigate = useNavigate();
@@ -21,35 +22,40 @@ const AdminProducts = () => {
   const [sort, setSort] = useState("");
 
   const filteredData = products
-  .filter((item) => {
-    const category = item.category ? item.category.toLowerCase() : "";
-    const description = item.description ? item.description.toLowerCase() : "";
+    .filter((item) => {
+      const category = item.category ? item.category.toLowerCase() : "";
+      const description = item.description
+        ? item.description.toLowerCase()
+        : "";
 
-    return category.includes(text.toLowerCase()) || description.includes(text.toLowerCase());
-  })
-  .sort((a, b) => {
-    if (sort === "asc") {
-      return b.price - a.price; 
-    } else if (sort === "desc") {
-      return a.price - b.price;
-    } else if (sort === "az") {
-      return a.category.localeCompare(b.category); 
-    } else if (sort === "za") {
-      return b.category.localeCompare(a.category); 
-    }
-  });
+      return (
+        category.includes(text.toLowerCase()) ||
+        description.includes(text.toLowerCase())
+      );
+    })
+    .sort((a, b) => {
+      if (sort === "asc") {
+        return b.price - a.price;
+      } else if (sort === "desc") {
+        return a.price - b.price;
+      } else if (sort === "az") {
+        return a.category.localeCompare(b.category);
+      } else if (sort === "za") {
+        return b.category.localeCompare(a.category);
+      }
+    });
 
   const toggleSort = () => {
     if (sort === "") {
-      setSort("asc"); 
+      setSort("asc");
     } else if (sort === "asc") {
-      setSort("desc"); 
+      setSort("desc");
     } else if (sort === "desc") {
-      setSort("az"); 
+      setSort("az");
     } else if (sort === "az") {
-      setSort("za"); 
+      setSort("za");
     } else {
-      setSort(""); 
+      setSort("");
     }
   };
 
@@ -107,6 +113,9 @@ const AdminProducts = () => {
         <p style={{ textAlign: "center" }}>Loading...</p>
       ) : (
         <div className={styles.content}>
+          <Link className={styles.btn} to={"/admin"}>
+            <IoMdArrowBack />
+          </Link>
           <form
             action=""
             onSubmit={(e) => e.preventDefault()}

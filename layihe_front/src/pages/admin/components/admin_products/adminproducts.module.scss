@@ -6,6 +6,11 @@
     flex-direction: column;
     gap: 20px;
 
+    .btn {
+      font-size: 20px;
+      color: #000;
+    }
+    
     form {
       &.filtered {
         display: flex;

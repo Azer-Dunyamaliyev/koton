@@ -13,7 +13,7 @@ const BasketCart = () => {
   const dispatch = useDispatch();
   const { orders, loading, error } = useSelector((state) => state.orders);
   const { status } = useSelector((state) => state.favorites);
-  const userId = "USER_ID";  // Buraya gerçek userId'yi yerleştirin
+  const userId = "USER_ID";  
   const [imageData, setImageData] = useState({});
   const [localFavorites, setLocalFavorites] = useState({});
 
