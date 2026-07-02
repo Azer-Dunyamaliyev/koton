@@ -48,15 +48,17 @@ if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir, { recursive: true });
 }
 
-// DB Bağlantısı
-connectDB().then(() => {
-  console.log('DB quruldu');
-}).catch((err) => {
-  console.error('Veritabanına bağlanırken hata oluştu:', err);
-});
+// DB Bağlantısı + Server başlatma
+const PORT = process.env.PORT || 5500;
 
-// SERVER
-const PORT = 5500;
-app.listen(PORT, () => {
-  console.log(`Server ${PORT} portunda çalişir...`);
-});
+connectDB()
+  .then(() => {
+    console.log('DB quruldu');
+    app.listen(PORT, () => {
+      console.log(`Server ${PORT} portunda çalişir...`);
+    });
+  })
+  .catch((err) => {
+    console.error('Veritabanına bağlanırken hata oluştu:', err.message);
+    process.exit(1);
+  });
