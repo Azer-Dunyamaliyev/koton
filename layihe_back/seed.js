@@ -4,8 +4,16 @@ import productsModel from "./models/productsModel.js";
 
 dotenv.config();
 
-// Test məqsədli placeholder şəkillər (picsum.photos - pulsuz, açıq mənbə)
-const img = (seed) => `https://picsum.photos/seed/${seed}/600/800`;
+// Test məqsədli placeholder şəkillər - kateqoriyaya uyğun geyim şəkilləri (LoremFlickr, açar sözlə axtarış)
+const categoryKeywords = {
+  jacket: "jacket,fashion",
+  jeans: "jeans,denim",
+  shoes: "sneakers,shoes",
+  "t-shirts": "tshirt,fashion",
+};
+
+const img = (category, seed) =>
+  `https://loremflickr.com/600/800/${categoryKeywords[category]}?lock=${seed}`;
 
 const sizesFor = (name, category) => {
   if (name === "kids") {
@@ -47,7 +55,7 @@ names.forEach((name) => {
         info: `${title} üçün rahat və keyfiyyətli material istifadə olunub. Gündəlik istifadə üçün ideal seçimdir.`,
         price: Math.floor(Math.random() * (180 - 25 + 1) + 25),
         sizes: sizesFor(name, category),
-        images: [img(`${name}-${category}-${i}-${seedCounter}`), img(`${name}-${category}-${i}-alt-${seedCounter}`)],
+        images: [img(category, `${name}-${category}-${i}-${seedCounter}`), img(category, `${name}-${category}-${i}-alt-${seedCounter}`)],
         defaultColor: ["black", "white", "beige", "navy"][i % 4],
         variants: [],
       });
